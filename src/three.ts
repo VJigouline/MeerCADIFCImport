@@ -111,6 +111,8 @@ export function toThree(result: IfcImportResult, options: IfcThreeOptions = {}):
     return group;
   };
   for (const object of result.roots) root.add(build(object));
+  // World matrices ready for measuring, such as with Box3.setFromObject, before the first render.
+  root.updateMatrixWorld(true);
   return root;
 }
 
