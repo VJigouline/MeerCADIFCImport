@@ -1,0 +1,62 @@
+{
+  "name": "meercad-ifc-import",
+  "version": "1.0.0",
+  "description": "IFC importer for three.js in TypeScript: reads IFC2X3 and the IFC4 line (IFC2X4, IFC4 with addenda, IFC4X1, IFC4X2, IFC4X3), detects the schema version, and builds meshes, colours, the spatial structure and properties without WASM.",
+  "keywords": [
+    "ifc",
+    "bim",
+    "ifc2x3",
+    "ifc4",
+    "ifc4x3",
+    "step",
+    "three",
+    "threejs",
+    "importer",
+    "loader",
+    "typescript"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "Documentation",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "prepare": "npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "three": ">=0.160.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/three": "^0.187.0",
+    "@vitest/coverage-v8": "^5.1.0",
+    "three": "^0.187.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VJigouline/MeerCADIFCImport.git"
+  }
+}
